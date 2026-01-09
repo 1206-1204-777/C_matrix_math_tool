@@ -6,45 +6,44 @@
 
 Matrix *create_matrix(size_t rows, size_t cols){
     if (rows <=0 || cols <= 0){
-        fprintf(stderr,"引数で値が渡されませんでした。");
-        exit(1);
+        fprintf(stderr,"引数で値が渡されませんでした。\n");
+        return NULL;
 
     }
 
     if (rows > 0 && cols > (SIZE_MAX / sizeof(double))/ rows){
-        fprintf(stderr,"メモリの最大値を超えています。");
-        exit(1);
+        fprintf(stderr,"メモリの最大値を超えています。\n");
+        return NULL;
     }
     Matrix *m = (Matrix *)malloc(sizeof(Matrix));
     if (m == NULL)
     {
-       fprintf(stderr,"メモリ確保に失敗しました。");
-       exit(1);
+       fprintf(stderr,"メモリ確保に失敗しました。\n");
+       return NULL;
     }
-    size_t total_size = sizeof(double) * rows * cols;
-    m->data = (double *)malloc(total_size);
-    if (m->data == NULL)
-    {
-        fprintf(stderr,"領域の確保に失敗しました。");
-        free_matrix(m);
-        exit(1);
-    }
-    /*初期化処理*/
-    for (size_t i = 0; i < rows * cols; i++)
-    {
-        m->data[i] = 0.0;
-    }
+
+    m->data = NULL;
     m->rows = rows;
     m->cols = cols;
+
+    m->data = (double *)calloc(rows * cols, sizeof(double));
+    if (m->data == NULL)
+    {
+        fprintf(stderr,"メモリ確保に失敗しました。\n");
+        free_matrix(m);
+        return NULL;
+    }
+
+
     return m;
 };
 
 
-int print_matrix(Matrix *data){
+int print_matrix(const Matrix *data){
     if (data == NULL)
     {
-        fprintf(stderr,"引数でポインタが渡されませんでした。");
-        exit(1);
+        fprintf(stderr,"引数でポインタが渡されませんでした。\n");
+        return 1;
     }
     for (size_t i = 0; i < data->rows; i++)
     {
@@ -59,18 +58,19 @@ int print_matrix(Matrix *data){
     return 0;
 };
 
-Matrix *add_matrix(Matrix *data_x, Matrix *data_y){
+Matrix *add_matrix(const Matrix *data_x, const Matrix *data_y){
     if (data_x == NULL || data_y == NULL)
     {
-        fprintf(stderr,"引数でポインタが渡されませんでした。");
-        exit(1);
+        fprintf(stderr,"引数でポインタが渡されませんでした。\n;");
+        return NULL;
     }
     if (data_x->rows != data_y->rows || data_x->cols != data_y->cols)
     {
-        fprintf(stderr,"行列の形状が一致しませんでした。");
-        exit(1);
+        fprintf(stderr,"行列の形状が一致しませんでした。\n");
+        return NULL;
     }
     Matrix *y = create_matrix(data_x->rows, data_x->cols);
+    if (y == NULL) return NULL;
     for (size_t i = 0; i < data_x->rows; i++)
     {
         for (size_t j = 0; j < data_x->cols; j++)
@@ -86,7 +86,7 @@ Matrix *add_matrix(Matrix *data_x, Matrix *data_y){
 void free_matrix(Matrix *data){
     if (data == NULL)
     {
-        fprintf(stderr,"引数でポインタが渡されませんでした。");
+        fprintf(stderr,"引数でポインタが渡されませんでした。\n");
         return;
     }
     free(data->data);
