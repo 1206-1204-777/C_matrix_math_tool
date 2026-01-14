@@ -86,7 +86,7 @@ Matrix *add_matrix(const Matrix *data_x, const Matrix *data_y){
 Matrix *sub_matrix(const Matrix *data_x, const Matrix *data_y){
     if (data_x == NULL || data_y == NULL)
     {
-        fprintf(stderr,"引数でポインタが渡されませんでした。\n;");
+        fprintf(stderr,"引数でポインタが渡されませんでした。\n");
         return NULL;
     }
     if (data_x->rows != data_y->rows || data_x->cols != data_y->cols)
