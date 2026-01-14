@@ -48,7 +48,6 @@ void test_tn02(){
 }
 void test_tn03(){
     size_t rows = 2, cols = 2;
-    
     Matrix *result = create_matrix(2, 2);
 
         int status = print_matrix(result);
@@ -61,7 +60,7 @@ void test_tn03(){
 
 void test_tn04(){
     size_t rows = 2, cols = 2;
-    Matrix *result = create_matrix(2, 2);
+    Matrix *result = create_matrix(rows, cols);
         free_matrix(result);
         printf("TN-04: PASS\n");
 }
@@ -109,3 +108,56 @@ assert(create_matrix(SIZE_MAX, SIZE_MAX) == NULL);
 printf("TE-05: PASS\n");
 }
 
+void test_sub_tn01(){
+    size_t rows = 6, cols = 2;
+    Matrix *mat_a = create_matrix(rows, cols);
+    Matrix *mat_b = create_matrix(rows, cols);
+
+    for (size_t i = 0; i < rows * cols; i++)
+    {
+        mat_a->data[i] = 6.0;
+        mat_b->data[i] = 2.0;
+    }
+    Matrix *result = sub_matrix(mat_a, mat_b);
+
+    assert(result != NULL);
+    for (size_t i = 0; i < rows * cols; i++)
+    {
+        assert(result->data[i] == 4.0);
+    }
+    
+
+        free_matrix(mat_a);
+        free_matrix(mat_b);
+        free_matrix(result);
+        printf("TN-SUB-01: PASS\n");
+
+}
+
+void test_sub_te02(){
+    size_t rows = 2, cols = 3;
+    Matrix *mat_a = create_matrix(rows, cols);
+    Matrix *mat_b = create_matrix(3, cols);
+
+    for (size_t i = 0; i < rows * cols; i++)
+    {
+        mat_a->data[i] = 2.0;
+        mat_b->data[i] = 2.0;
+    }
+    Matrix *result = sub_matrix(mat_a, mat_b);
+
+    assert(result == NULL);
+        free_matrix(mat_a);
+        free_matrix(mat_b);
+        free_matrix(result);
+        printf("TE-SUB-02: PASS\n");
+
+
+}
+
+void test_sub_te03(){
+assert(add_matrix(NULL, NULL) == NULL);
+int status = print_matrix(NULL);
+assert(status == 1);
+printf("TE-SUB-03: PASS\n");
+}
