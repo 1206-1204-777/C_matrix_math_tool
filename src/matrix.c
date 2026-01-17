@@ -107,7 +107,30 @@ Matrix *sub_matrix(const Matrix *data_x, const Matrix *data_y){
     return y;
 
 }
+Matrix *hadamard_product(const Matrix *data_x, const Matrix *data_y){
+    if (data_x == NULL || data_y == NULL)
+    {
+        fprintf(stderr,"引数でポインタが渡されませんでした。\n");
+        return NULL;
+    }
+    if (data_x->rows != data_y->rows || data_x->cols != data_y->cols)
+    {
+        fprintf(stderr,"行列の形状が一致しませんでした。\n");
+        return NULL;
+    }
+    Matrix *y = create_matrix(data_x->rows, data_x->cols);
+    if (y == NULL) return NULL;
+    for (size_t i = 0; i < data_x->rows; i++)
+    {
+        for (size_t j = 0; j < data_x->cols; j++)
+        {
+            y->data[i * y->cols + j] = data_x->data[i * data_x->cols + j] * data_y->data[i * data_y->cols + j];
+        }
+        
+    }
+    return y;
 
+}
 void free_matrix(Matrix *data){
     if (data == NULL)
     {
