@@ -1,0 +1,42 @@
+## 1. 追加概要
+- `mul_matrix`関数を追加し行列に対する乗算を行う機能を追加
+
+## 2. 追加内容
+### プロトタイプ
+- `Matrix *dot_product(const Matrix *data_x, const Matrix *data_y);`
+    - **引数**:
+        - `const Matrix *data_x`: 計算に使用する配列
+        - `const Matrix *data_y`: 計算に使用する配列
+    - **戻り値**:
+        - 成功時：`return y;`
+        - 失敗時：呼び出し元にNULLを返す(`retun NULL`)
+
+    - **処理内容（アルゴリズム）**:
+        1. 引数`data_x`と引数`data_y`がNULLでないか確認
+            * NULLの場合呼び出し元に `NULL` を返す
+        2. `data_x->cols`と`data_y->rows`の大きさが一致しているかチェック
+            * 一致していない場合は呼び出し元に `NULL` を返す
+        3. `create_matrix`を使い計算結果を格納するための配列`y`を作成
+            * `y`の形状は`data_x->rows`,`data_y->cols`とする
+        4. `y`がNULLではないかチェックを行う
+            * NULLの場合は場合呼び出し元に `NULL` を返す
+        5. 3重ループを使い、配列`data_x`と配列`data_y`でドット積を行う
+            * 1層目のループでは`i`を使い`data_x->rows`を回る
+            * 2層目のループで`j`を使い`data_y->cols`を回る
+                * 演算結果を格納する`double sum = 0.0;`を定義
+            * 3層目のループで`k`を使い内積の和を求める
+            * `data_x->data[i * data_x->cols + k]`と`data_y->data[k * data_y->cols + j]`を乗算する
+            * 結果を配列`sum`に加算する
+            * ループを使い配列`y->data[i * y->cols + j]`に`sum`を代入する
+        6. 戻り値として配列`y`を返す
+
+    - **メモリ管理**:
+    - 関数内で `malloc` を行い配列を確保。
+    - 戻り値のメモリ解放責任は呼び出し側に帰属(`free_matrix`を使用し開放)
+
+## 3. 追加理由
+- ディープラーニングに対応するため追加
+
+## 4. 影響範囲
+- `matrix.c`に追加関数を記載する
+- `main.c`で配列を作成し乗算処理を実行する
