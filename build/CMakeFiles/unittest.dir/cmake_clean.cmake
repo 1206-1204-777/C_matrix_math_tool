@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/unittest.dir/src/test/test_main.c.o"
-  "CMakeFiles/unittest.dir/src/test/test_main.c.o.d"
-  "CMakeFiles/unittest.dir/src/test/test_matrix.c.o"
-  "CMakeFiles/unittest.dir/src/test/test_matrix.c.o.d"
+  "CMakeFiles/unittest.dir/test/test_main.c.o"
+  "CMakeFiles/unittest.dir/test/test_main.c.o.d"
+  "CMakeFiles/unittest.dir/test/test_matrix.c.o"
+  "CMakeFiles/unittest.dir/test/test_matrix.c.o.d"
   "unittest"
   "unittest.pdb"
 )

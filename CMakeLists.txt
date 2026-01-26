@@ -25,8 +25,8 @@ target_link_libraries(matrix_tool matrix_core m)
 
 # 7. テスト用実行ファイルを作成
 set(TEST_SOURCES
-    src/test/test_matrix.c
-    src/test/test_main.c
+    test/test_matrix.c
+    test/test_main.c
 )
 add_executable(unittest ${TEST_SOURCES})
 # テストで使用するライブラリのリンク

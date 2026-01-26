@@ -11,12 +11,12 @@
 },
 {
   "directory": "/home/kazu/git/C_tools/build",
-  "command": "/usr/bin/gcc-12  -I/home/kazu/git/C_tools/include  -Wall -Wextra -g -g -o CMakeFiles/unittest.dir/src/test/test_matrix.c.o -c /home/kazu/git/C_tools/src/test/test_matrix.c",
-  "file": "/home/kazu/git/C_tools/src/test/test_matrix.c"
+  "command": "/usr/bin/gcc-12  -I/home/kazu/git/C_tools/include  -Wall -Wextra -g -g -o CMakeFiles/unittest.dir/test/test_matrix.c.o -c /home/kazu/git/C_tools/test/test_matrix.c",
+  "file": "/home/kazu/git/C_tools/test/test_matrix.c"
 },
 {
   "directory": "/home/kazu/git/C_tools/build",
-  "command": "/usr/bin/gcc-12  -I/home/kazu/git/C_tools/include  -Wall -Wextra -g -g -o CMakeFiles/unittest.dir/src/test/test_main.c.o -c /home/kazu/git/C_tools/src/test/test_main.c",
-  "file": "/home/kazu/git/C_tools/src/test/test_main.c"
+  "command": "/usr/bin/gcc-12  -I/home/kazu/git/C_tools/include  -Wall -Wextra -g -g -o CMakeFiles/unittest.dir/test/test_main.c.o -c /home/kazu/git/C_tools/test/test_main.c",
+  "file": "/home/kazu/git/C_tools/test/test_main.c"
 }
 ]

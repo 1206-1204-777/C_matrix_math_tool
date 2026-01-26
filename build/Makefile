@@ -203,53 +203,53 @@ src/matrix.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix_core.dir/build.make CMakeFiles/matrix_core.dir/src/matrix.c.s
 .PHONY : src/matrix.c.s
 
-src/test/test_main.o: src/test/test_main.c.o
-.PHONY : src/test/test_main.o
+test/test_main.o: test/test_main.c.o
+.PHONY : test/test_main.o
 
 # target to build an object file
-src/test/test_main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/src/test/test_main.c.o
-.PHONY : src/test/test_main.c.o
+test/test_main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/test/test_main.c.o
+.PHONY : test/test_main.c.o
 
-src/test/test_main.i: src/test/test_main.c.i
-.PHONY : src/test/test_main.i
+test/test_main.i: test/test_main.c.i
+.PHONY : test/test_main.i
 
 # target to preprocess a source file
-src/test/test_main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/src/test/test_main.c.i
-.PHONY : src/test/test_main.c.i
+test/test_main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/test/test_main.c.i
+.PHONY : test/test_main.c.i
 
-src/test/test_main.s: src/test/test_main.c.s
-.PHONY : src/test/test_main.s
+test/test_main.s: test/test_main.c.s
+.PHONY : test/test_main.s
 
 # target to generate assembly for a file
-src/test/test_main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/src/test/test_main.c.s
-.PHONY : src/test/test_main.c.s
+test/test_main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/test/test_main.c.s
+.PHONY : test/test_main.c.s
 
-src/test/test_matrix.o: src/test/test_matrix.c.o
-.PHONY : src/test/test_matrix.o
+test/test_matrix.o: test/test_matrix.c.o
+.PHONY : test/test_matrix.o
 
 # target to build an object file
-src/test/test_matrix.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/src/test/test_matrix.c.o
-.PHONY : src/test/test_matrix.c.o
+test/test_matrix.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/test/test_matrix.c.o
+.PHONY : test/test_matrix.c.o
 
-src/test/test_matrix.i: src/test/test_matrix.c.i
-.PHONY : src/test/test_matrix.i
+test/test_matrix.i: test/test_matrix.c.i
+.PHONY : test/test_matrix.i
 
 # target to preprocess a source file
-src/test/test_matrix.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/src/test/test_matrix.c.i
-.PHONY : src/test/test_matrix.c.i
+test/test_matrix.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/test/test_matrix.c.i
+.PHONY : test/test_matrix.c.i
 
-src/test/test_matrix.s: src/test/test_matrix.c.s
-.PHONY : src/test/test_matrix.s
+test/test_matrix.s: test/test_matrix.c.s
+.PHONY : test/test_matrix.s
 
 # target to generate assembly for a file
-src/test/test_matrix.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/src/test/test_matrix.c.s
-.PHONY : src/test/test_matrix.c.s
+test/test_matrix.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/test/test_matrix.c.s
+.PHONY : test/test_matrix.c.s
 
 # Help Target
 help:
@@ -268,12 +268,12 @@ help:
 	@echo "... src/matrix.o"
 	@echo "... src/matrix.i"
 	@echo "... src/matrix.s"
-	@echo "... src/test/test_main.o"
-	@echo "... src/test/test_main.i"
-	@echo "... src/test/test_main.s"
-	@echo "... src/test/test_matrix.o"
-	@echo "... src/test/test_matrix.i"
-	@echo "... src/test/test_matrix.s"
+	@echo "... test/test_main.o"
+	@echo "... test/test_main.i"
+	@echo "... test/test_main.s"
+	@echo "... test/test_matrix.o"
+	@echo "... test/test_matrix.i"
+	@echo "... test/test_matrix.s"
 .PHONY : help
 
 
