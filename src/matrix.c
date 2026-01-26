@@ -169,3 +169,36 @@ void free_matrix(Matrix *data){
     free(data->data);
     free(data);
 };
+
+Matrix *div_matrix(const Matrix *data_x, const Matrix *data_y){
+    if (data_x == NULL || data_y == NULL)
+    {
+        fprintf(stderr,"引数でポインタが渡されませんでした。\n");
+        return NULL;
+    }
+    if (data_x->rows != data_y->rows || data_x->cols != data_y->cols)
+    {
+        fprintf(stderr,"行列の形状が一致しませんでした。\n");
+        return NULL;
+    }
+
+    
+    Matrix *y = create_matrix(data_x->rows, data_x->cols);
+    if (y == NULL) return NULL;
+    for (size_t i = 0; i < data_x->rows; i++)
+    {
+        for (size_t j = 0; j < data_x->cols; j++)
+        {
+            size_t idx = i * data_x->cols + j;
+            if (data_y->data[idx] == 0.0){
+                fprintf(stderr,"0除算を検知しました。\n");
+                free_matrix(y);
+                return NULL;
+            }
+            y->data[i * y->cols + j] = data_x->data[i * data_x->cols + j] / data_y->data[i * data_y->cols + j];
+        }
+        
+    }
+    return y;
+
+}
