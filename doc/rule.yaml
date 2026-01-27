@@ -3,9 +3,11 @@ project rules:
   folder rule: 
    src: ソースコードを格納
    include: 補助機能を格納
+   build: バイナリファイルなどビルド関係のファイルを格納
    doc:
     RD: 要件定義書を格納
     temp: 設計書などのテンプレートを保管
     design: 新規機能の設計書を保管
     change: 既存機能の修正設計書を保管
     tests: テスト仕様書を保管
+   wrapper: 各言語のラッパーを格納
