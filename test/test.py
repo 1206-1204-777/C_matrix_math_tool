@@ -1,6 +1,6 @@
-import MTools
-
-x = MTools.create_matrix(1,1)
-x = MTools.add_matrix(x, x)
-MTools.print_matrix(x)
-MTools.free_matrix(x)
+import MTools as mt
+x = mt.create_matrix(2,3)
+data = [10, 5, 6, 7, 7, 8]
+x.set_data(data)
+y = x * x
+y.print()
